@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 19:33:42 by cmorales          #+#    #+#             */
-/*   Updated: 2022/09/07 16:55:16 by cmorales         ###   ########.fr       */
+/*   Updated: 2022/09/26 17:46:10 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = NULL;
 	stack_b = NULL;
-	if (argc > 1)
+	if (argc > 2)
 		check_errors(argv, argc);
 	parser (&stack_a, argv, argc);
 	get_min_value(&stack_a);
 	order_sort(&stack_a, &stack_b, len_stack(stack_a));
 	clear_elements (&stack_a, &stack_b);
+	//system("leaks -q push_swap");
 	return (0);
 }

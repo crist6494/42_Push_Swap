@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 18:24:26 by cmorales          #+#    #+#             */
-/*   Updated: 2022/09/05 19:36:12 by cmorales         ###   ########.fr       */
+/*   Updated: 2022/09/26 17:45:50 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,11 @@ void	parser(t_node **stack, char **args, int total_arg)
 			free(str);
 		}
 		else
+		{
+			str = &args[index];
+			check_errors2(str);
 			create_new_element(args[index], stack);
+		}
 		index++;
 	}
 }
