@@ -6,7 +6,7 @@
 /*   By: cmorales <moralesrojascr@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 19:33:42 by cmorales          #+#    #+#             */
-/*   Updated: 2022/09/26 17:46:10 by cmorales         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:01:08 by cmorales         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,17 @@ void	printstack(t_node *stack_a, t_node *stack_b)
 	printf("---------\nA     B \n\n");
 }
 
+
+void	ft_void()
+{
+	system("leaks -q push_swap");
+}
+
 int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
-
-	stack_a = malloc(sizeof(t_node));
-	stack_b = malloc(sizeof(t_node));
-	if (!stack_a)
-		return (0);
-	if (!stack_b)
-		return (0);
+ 
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc > 2)
@@ -58,7 +58,9 @@ int	main(int argc, char **argv)
 	parser (&stack_a, argv, argc);
 	get_min_value(&stack_a);
 	order_sort(&stack_a, &stack_b, len_stack(stack_a));
+	//printstack(stack_a, stack_b);
 	clear_elements (&stack_a, &stack_b);
-	//system("leaks -q push_swap");
+	exit(EXIT_SUCCESS);
+	//atexit(ft_void);
 	return (0);
 }
